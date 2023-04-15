@@ -12,6 +12,8 @@
     --txtColor: #333333;
     --uiGrayTwo: #C4C4C4;
     --hoverBrightness: 90%;
+
+    --contentWidth: 1100px;
     
 }
 
@@ -80,6 +82,8 @@ body {
     max-width: 460px;
     display: flex;
 }
+
+
 
 .top-nav-container {
     padding-bottom: 30px;
@@ -179,9 +183,8 @@ a:visited {
     max-width: 500px;
     min-height: 200px;
     aspect-ratio: 16/9;
-    border: 2px solid var(--uiGray);
-    padding: 0.5rem;
-    border-radius: 0.5rem;
+    
+    
 }
 
 .card-author-avatar {
@@ -217,11 +220,12 @@ a:visited {
     padding: 0 1rem 0 0;
 }
 
-.bot-nav-cards {
+.bot-nav-cards, .cata-nav-cards {
     display: flex;
     flex-direction: column;
     gap: 5px;
     padding: 1rem;
+    margin: 1rem;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
     
 }
@@ -267,8 +271,9 @@ a:visited {
     
 }
 
+
 .cata-content-container {
-    max-width: 1024px;
+    max-width: var(--contentWidth);
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     padding: 20px;
@@ -631,6 +636,9 @@ tr {
 
 .page-nav {
     margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .page-nav-entries {
@@ -1059,5 +1067,18 @@ tr {
     .footer-section-container {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
+    }
+    .cata-content-container {
+        padding: 0;
+        margin: 0;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+
+    .cata-nav-cards {
+        margin: 0;
+    }
+
+    #bot-section-container {
+        padding: 10px;
     }
 }

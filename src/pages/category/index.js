@@ -3,8 +3,8 @@ import * as React from 'react'
 import Seo from '../../components/seo'
 import Topblock from '../../components/topblock'
 
-const ReviewsPage = ({data}) => {
-
+const CatePage = (props) => {
+    console.log(props, 'from catepage')
 
     return (
         <div id="App"> 
@@ -38,4 +38,4 @@ export const query = graphql`
 
 export const Head = () => <Seo title="Categories" description="An Index page that contains all of our content categories"></Seo>
 
-export default ReviewsPage
+export default CatePage

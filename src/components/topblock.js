@@ -10,22 +10,22 @@ import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 
 const Topblock = ({headerTitle, headerTxt, curPage, inCat=false, inArc=false}) => {
 
-    // const data = useStaticQuery(graphql`
-    //     query {
-    //         allContentfulCategory {
-    //         edges {
-    //             node {
-    //             categoryName
-    //             contentful_id
-    //             slug
-    //             }
-    //         }
-    //         }
+    const data = useStaticQuery(graphql`
+        query {
+            allContentfulCategory(limit: 3) {
+                edges {
+                  node {
+                    categoryName
+                    slug
+                    contentful_id
+                  }
+                }
+              }
            
-    //     }
-    // `)
+        }
+    `)
 
-    // console.log(data, 'data from topblock')
+    console.log(data, 'data from topblock')
     // console.log(inCat, curPage)
     return (
             
@@ -38,10 +38,21 @@ const Topblock = ({headerTitle, headerTxt, curPage, inCat=false, inArc=false}) =
                     
                 </div>
                 <nav id="top-nav">
+
+                    
                     
                     {/* <input type="checkbox" id="menu-toggle"></input>
                     <label htmlFor='menu-toggle' className="menu-icon">&#9776;</label> */}
                     <ul className="navMenu">
+                        {data.allContentfulCategory.edges && data.allContentfulCategory.edges.map( (node) => {
+                            return (
+                                <li key={`nav-${node.node.contentful_id}`} className={curPage === 'web-novels' ? 'selected navCat' : 'navCat'}>
+
+                                    <Link to={`/category/${node.node.slug}`}>{node.node.categoryName}</Link>
+
+                                </li>
+                            )
+                        }) }
                         <li>
                             <Searchbar />
                             {/* <button id="searchBtn">

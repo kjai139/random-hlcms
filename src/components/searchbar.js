@@ -19,8 +19,8 @@ const Searchbar = ({isBottom = false}) => {
 
     
 
-    // console.log(window.__FLEXSEARCH__.en.index, 'search index')
-    // console.log(window.__FLEXSEARCH__.en.store, 'the searchbar store')
+    console.log(window.__FLEXSEARCH__.en.index, 'search index')
+    console.log(window.__FLEXSEARCH__.en.store, 'the searchbar store')
 
     const getSearchResults = (query) => {
         
@@ -108,7 +108,7 @@ const Searchbar = ({isBottom = false}) => {
                 {results.length > 0 && isResultOut ? results.map((node) => {
                     return (
                         <li className='search-results-li' key={`searchR-${node.contentful_id}`}>
-                            <Link to={`/${node.slug}`}>{node.postTitle}</Link>
+                            <Link to={`/category/${node.searchCategory}/${node.slug}`}>{node.title}</Link>
                         </li>
                     )
                 }) : null}

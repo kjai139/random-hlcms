@@ -105,18 +105,6 @@ module.exports = {
             },
             store:true,
           },
-          // {
-          //   name: 'excerpt',
-          //   indexed: false,
-          //   resolver: 'excerpt',
-          //   attributes: {
-          //     encode: 'balance',
-          //     tokenize: 'full',
-          //     threshold: 6,
-          //     depth: 3,
-          //   },
-          //   store:true,
-          // },
           {
             name: 'slug',
             resolver: 'slug',
@@ -128,6 +116,12 @@ module.exports = {
             resolver: 'contentful_id',
             store:true, 
           },
+          {
+            name: 'searchCategory',
+            resolver: 'searchCategory',
+            store:true,
+          },
+
         ],
       },
     },
