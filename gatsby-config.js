@@ -5,12 +5,15 @@ require('dotenv').config()
 
 const theSite = process.env.MY_SITE_URL
 const siteTitle = process.env.MY_SITE_TITLE
+const customTokenizer = (str) => {
+  return str.split(/\s+/).filter(token => token.length > 0);
+};
 module.exports = {
   siteMetadata: {
     title: siteTitle,
     siteUrl: theSite,
-    description: '',
-    logo: '',
+    description: 'Discover captivating web novel translations in English. Explore diverse genres and cultures. Join our community of avid readers and embark on modern literary adventures. Indulge in the joy of storytelling!',
+    
   },
   plugins: [
     "gatsby-plugin-image",
@@ -75,7 +78,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        icon: 'src/images/favicon.svg'
+        icon: 'src/images/favicon.png'
       },
     },
     {
@@ -98,7 +101,7 @@ module.exports = {
             resolver: 'title',
             attributes: {
               encode: 'balance',
-              tokenize: 'forward',
+              tokenize: 'strict',
               threshold: 6,
               depth: 3,
 
@@ -123,6 +126,7 @@ module.exports = {
           },
 
         ],
+        
       },
     },
   

@@ -41,25 +41,33 @@ const Searchbar = ({isBottom = false}) => {
 
             let nodes = store.filter(node => (results.includes(node.id) ? node : null))
             .map(node => node.node)
-            // console.log(nodes)
-            setResults(nodes)
+            if (nodes.length > 0) {
+                setResults(nodes)
+            }
+            
+            
+            
             setIsResultOut(true)
-            // console.log(query)
-            // console.log(results)
+            console.log(query, 'qery')
+            console.log(results, 'results')
             
         }
     }
 
     const toggleMenuOpen = () => {
+        setResults([])
         setIsResultOut(false)
         
     }
     
     const handleInputChange = (e) => {
-        setResults([])
+        
         const value = e.target.value
+        if (value === '') {
+            setResults([])
+        }
         setQuery(value)
-        // console.log('query set to', query, e.target.value)
+        console.log('query set to', query)
         getSearchResults(value)
     }
     

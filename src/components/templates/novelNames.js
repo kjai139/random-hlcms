@@ -4,10 +4,11 @@ import Topblock from '../topblock'
 import Footer from '../footer'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
+import Seo from '../seo'
 
 
 const NovelNameTemplate = (props) => {
-    console.log(props)
+    console.log(props, 'from novelnametemp')
     const blogPosts = props.data.allContentfulNovelChapters.edges
     const novelName = props.data.contentfulNovelName
     const numberOfPages = props.pageContext.numberOfPages
@@ -18,15 +19,20 @@ const NovelNameTemplate = (props) => {
             <Topblock headerTitle={`${novelName.title}`} inArc={true}/>
             </div>
     <div className='archive-content'>
-      
+        <div className='main-content'>
+            <h2>{novelName.title}</h2>
+            <p>{novelName.synopsis.synopsis}</p>
+        </div>
+        <div className='ch-list-div'>
+        <h2>Chapters</h2>
          <ul className='archive-list'>
             {blogPosts.map(blogPost => (
             <li key={blogPost.node.contentful_id}>
-                
-                <div className='archive-list-entry'>
                 <Link to={`./${blogPost.node.slug}`}>
-                    <span>{blogPost.node.title}</span>
-                    </Link>
+                <div className='archive-list-entry'>
+                
+                    <span className='btn-title-txt'>{blogPost.node.slug.split('-').pop()}</span>
+                    {/*
                     <div className='archive-author-details'>
                     <Link to={`/authors/${blogPost.node.author.slug}`}>
                     <div className='archive-avatar-div'>
@@ -37,12 +43,14 @@ const NovelNameTemplate = (props) => {
                     </div>
                     </Link>
                     <span className='card-post-date'>{blogPost.node.createdAt}</span>
-                    </div>
+                    </div> */}
                 </div>
+                </Link>
                 
                 </li>
                 ))}
         </ul>
+        </div>
 
       {/* Render pagination links */}
         <nav className='page-nav'>
@@ -75,6 +83,12 @@ export const query = graphql`
                 slug
               }
               title
+              thumbnail {
+                url
+              }
+              synopsis {
+                synopsis
+              }
             }
             allContentfulNovelChapters(
                 sort: {createdAt: DESC}, 
@@ -103,6 +117,7 @@ export const query = graphql`
     }
 `
 
+export const Head = ({data}) => <Seo title={data.contentfulNovelName.title} description={`${data.contentfulNovelName.title} in English`} ogDesc={`${data.contentfulNovelName.title} translated into English`} ogImg={ data.contentfulNovelName.thumbnail ? data.contentfulNovelName.thumbnail.url : null}></Seo>
 
 
 

@@ -15,6 +15,7 @@ const HomePage = () => {
     <div id="App"> 
       <div id="top-section-container">
         <Topblock curPage="home"/>
+        <div className="section-headers"><h2>Latest Releases</h2></div>
         <TopPosts />
       </div>
     <BotBlock />
@@ -34,6 +35,6 @@ const HomePage = () => {
 
 
 
-export const Head = () => <Seo title={'JPW HUB'} description={'like P hub but for JP web novels'} />
+export const Head = () => <Seo />
 
 export default HomePage

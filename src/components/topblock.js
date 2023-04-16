@@ -3,7 +3,7 @@ import * as React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import Searchbar from "./searchbar"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
-
+import logo from "../images/logo.png"
 
 
 
@@ -33,6 +33,11 @@ const Topblock = ({headerTitle, headerTxt, curPage, inCat=false, inArc=false}) =
             <div id="top-nav-div">
                 <div id="site-logo">
                     
+                    <Link to="/">
+                    <div className="siteLogo-container">
+                    <StaticImage src="../images/logo.png" alt="Website Logo"></StaticImage>
+                    </div>
+                    </Link>
                     {/* {data.contentfulAsset ? <div className="siteLogo-container"><Link to="/"><GatsbyImage image={data.contentfulAsset.gatsbyImageData} alt="Deskego.com site logo"></GatsbyImage></Link></div> :<div><Link to="/">JPW Hub</Link></div> } */}
                         
                     
@@ -66,7 +71,7 @@ const Topblock = ({headerTitle, headerTxt, curPage, inCat=false, inArc=false}) =
             <div id="top-section-bottom">
                 <div className="top-section-headers-cont">
                     <h1 className="top-sect-header">
-                        {headerTitle ? headerTitle : 'JPW HUB'}
+                        {headerTitle ? headerTitle : 'wnNexus'}
                     </h1>
                    
                     {headerTxt? <p className="top-sect-header-txt"> {headerTxt}</p> : null}

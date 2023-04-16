@@ -5,6 +5,8 @@ import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Topblock from '../topblock'
 import Seo from '../seo'
+import Footer from '../footer'
+import { Link } from 'gatsby'
 
 
 
@@ -13,6 +15,19 @@ const Text = ({ children }) => <p className='chapter-txt'>{children}</p>
 
 const ChaptersTemp = (props) => {
     console.log(props, 'nvlchpts')
+    console.log(props.data.contentfulNovelChapters.novelName.novelchapters.length, 'chapter length')
+
+    const totalCh = props.data.contentfulNovelChapters.novelName.novelchapters.length
+    const currentCh = parseInt(props.data.contentfulNovelChapters.slug.split('-').pop())
+    
+    console.log(totalCh > currentCh, currentCh, 'page check')
+    const prevSlug = props.data.contentfulNovelChapters.slug.replace(currentCh, currentCh - 1)
+    const nextSlug = props.data.contentfulNovelChapters.slug.replace(currentCh, currentCh + 1)
+
+    console.log(prevSlug, nextSlug)
+
+
+
     const options = {
         renderMark: {
             [MARKS.BOLD]: text => <Bold>{text}</Bold>,
@@ -87,19 +102,28 @@ const ChaptersTemp = (props) => {
             
             </div>
             <div className='blogpost-body-container'>
-                <div className='blogpost-ad-block'>
+                <div className='blogpost-ad-block-top'>
 
                 </div>
                 
                 <div className='blogpost-center'>
+                
                 {props.data.contentfulNovelChapters.body && renderRichText(props.data.contentfulNovelChapters.body, options)}
+                
+                <nav className='blogpost-btn-nav'>
+                    {currentCh === 1 ? <Link to={`../`}><button className='ch-nav-btns'>Table of Content</button></Link> : 
+                    <Link to={`../${prevSlug}`}><button className='ch-nav-btns'>Previous Chapter</button></Link>
+                    }
+                    {currentCh === totalCh ? null : <Link to={`../${nextSlug}`}><button className='ch-nav-btns'>Next Chapter</button></Link>}
+                </nav>
+                
                 </div>
                 <div className='blogpost-ad-block'>
 
                 </div>
             </div>
             <footer id="footer-section-container">
-           
+              <Footer></Footer>
 
             </footer>
       </div>
@@ -112,13 +136,16 @@ export const query = graphql`
         contentfulNovelChapters(id: {eq: $id}) {
             novelName {
                 title
+                novelchapters {
+                  slug
+                }
                 thumbnail {
                     gatsbyImageData
                     url
                 }
             }
             createdAt(formatString: "MMMM DD, YYYY")
-           
+            slug
             title
             body {
                 raw
