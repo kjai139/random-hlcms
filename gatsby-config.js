@@ -5,14 +5,13 @@ require('dotenv').config()
 
 const theSite = process.env.MY_SITE_URL
 const siteTitle = process.env.MY_SITE_TITLE
-const customTokenizer = (str) => {
-  return str.split(/\s+/).filter(token => token.length > 0);
-};
+
 module.exports = {
   siteMetadata: {
     title: siteTitle,
     siteUrl: theSite,
     description: 'Discover captivating web novels translated to English. Join our community of avid readers and embark on modern literary adventures. Indulge in the joy of storytelling!',
+    logo: 'https://images.ctfassets.net/xjhjlusifrvm/53hFDWcYj3gFaUAG07YOq8/5c082616a9c52c26129b1ff9835f87f3/android-chrome-512x512.png',
     
   },
   plugins: [
