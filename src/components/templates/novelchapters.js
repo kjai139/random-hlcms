@@ -118,7 +118,7 @@ const ChaptersTemp = (props) => {
                 {props.data.contentfulNovelChapters.body && renderRichText(props.data.contentfulNovelChapters.body, options)}
                 
                 <nav className='blogpost-btn-nav'>
-                    {currentCh === 1 ? <Link to={`../`}><button className='ch-nav-btns'>Table of Content</button></Link> : 
+                    {currentCh === 1 ? <Link to={`../`}><button className='ch-nav-btns'>Table of Contents</button></Link> : 
                     <Link to={`../${prevSlug}`}><button className='ch-nav-btns'>Previous Chapter</button></Link>
                     }
                     {currentCh === totalCh ? null : <Link to={`../${nextSlug}`}><button className='ch-nav-btns'>Next Chapter</button></Link>}
