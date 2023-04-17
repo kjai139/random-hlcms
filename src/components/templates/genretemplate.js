@@ -48,7 +48,7 @@ const GenTemp = (props) => {
                         })}
                        
                     </ul>
-                    <Link to={`${node.node.slug}`}>
+                    <Link to={`/category/${node.node.catRef.slug}/${node.node.slug}`}>
                     <h2 className="card-post-title">
                         {node.node.title}
                     </h2>
@@ -94,6 +94,7 @@ export const query = graphql`
             edges {
               node {
                 title
+                slug
                 catRef{
                     slug
                   }

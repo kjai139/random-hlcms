@@ -783,7 +783,7 @@ tr {
 }
 
 .siteLogo-container {
-    max-width: 60px;
+  max-width: 140px;
 }
 
 .main-lists {
@@ -1076,11 +1076,7 @@ tr {
     width: 100%;
   }
 
-  .siteLogo-container {
-    
-    max-height: 50px;
-    
-  }
+  
 
   #site-logo {
     justify-content: center;
