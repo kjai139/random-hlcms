@@ -402,7 +402,7 @@ a:visited {
   color: var(--darkthemeTextColor);
 }
 
-.blogpost-center > p {
+.chapter-txt {
   margin: 0rem 0rem 2rem 0rem;
   line-height: 2em;
 }
@@ -938,6 +938,7 @@ tr {
   display: flex;
   gap: 1rem;
   list-style-type: none;
+  background: var(--darkthemeHeadandFoot);
 }
 
 .authors-details-container {
