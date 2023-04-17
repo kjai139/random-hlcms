@@ -1062,9 +1062,7 @@ tr {
     border-color: var(--lightTxt);
   }
 
-  /* #searchBtn {
-        pointer-events: none;
-    } */
+  
 
   .search-result-div {
     position: absolute;
