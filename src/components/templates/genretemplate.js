@@ -30,7 +30,7 @@ const GenTemp = (props) => {
                       <div className="card-img-container">
                     {node.node.thumbnail ? <Link to={`/category/${node.node.catRef.slug}/${node.node.slug}`}><GatsbyImage image={node.node.thumbnail.gatsbyImageData} alt={'a gatsby image'} /></Link> : 
                     <Link to={`/category/${node.node.catRef.slug}/${node.node.slug}`}>
-                    <StaticImage src="../../images/thumbnailHolder.png"
+                    <StaticImage src="../../images/mthumbnail.png"
                     alt='default book cover'></StaticImage>
                     </Link>
                     }

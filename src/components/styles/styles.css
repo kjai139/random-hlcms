@@ -140,12 +140,20 @@ body {
 
 .bot-nav-cards-line {
   max-width: 800px;
-  width: 100%;
+  
   margin: 0 auto;
+  font-weight: lighter;
+  
+  
+  padding: 8px;
+  
+  font-size: 12px;
+  justify-content: space-around;
+  
   
   
   background-color: var(--darkthemeHeadandFoot);
-  padding: 1rem;
+  
   
   align-items: center;
   border-radius: 8px;
@@ -153,7 +161,7 @@ body {
 
   display: flex;
   gap: 1rem;
-  justify-content: space-between;
+  
   width: 100%;
 }
 
@@ -803,8 +811,13 @@ tr {
 }
 
 
-.bot-nav-cards-line:hover .card-post-title{
+.bot-nav-cards-line:hover .card-post-list-title{
   color:var(--darkthemeHighlight);
+}
+
+.card-post-list-title {
+  color: var(--darkthemeTextColor);
+  text-align: center;
 }
 
 #disqus-container {
@@ -1164,6 +1177,7 @@ tr {
 
   .bot-nav-cards-line {
     flex-direction: column;
+    font-size: .8rem;
   }
 
   table {

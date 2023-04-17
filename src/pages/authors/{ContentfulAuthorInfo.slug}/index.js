@@ -4,7 +4,7 @@ import Seo from '../../../components/seo'
 import HeaderNav from '../../../components/headerNav'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import  Footer  from '../../../components/footer'
-import { Link } from 'gatsby'
+
 
 const AuthorPanel = ({data}) => {
         return (
@@ -64,7 +64,7 @@ export const query = graphql`
         
     }`
 
-export const Head = ({data}) => <Seo title={`JPWNHUB- ${data.contentfulAuthorInfo.name}`}description={`Author page of ${data.contentfulAuthorInfo.name}`}></Seo>
+export const Head = ({data}) => <Seo title={`tL-Nexus - ${data.contentfulAuthorInfo.name}`}description={`Author page of ${data.contentfulAuthorInfo.name}`}></Seo>
 
 
 export default AuthorPanel

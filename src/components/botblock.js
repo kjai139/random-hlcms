@@ -45,7 +45,7 @@ const BotBlock = () => {
                    
                    
                     
-                    <h2 className="card-post-title">
+                    <h2 className="card-post-list-title">
                         {node.node.title}
                     </h2>
                    

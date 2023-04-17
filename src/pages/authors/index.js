@@ -73,6 +73,6 @@ export const query = graphql`
 `
 
 
-export const Head = () => <Seo title="Authors" description="A page with a list of Deskego's best writers"></Seo>
+export const Head = () => <Seo title="Authors" description="A page with a list of TL-Nexus's translators"></Seo>
 
 export default AuthorPage

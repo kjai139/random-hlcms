@@ -12,7 +12,7 @@ module.exports = {
   siteMetadata: {
     title: siteTitle,
     siteUrl: theSite,
-    description: 'Discover captivating web novel translations in English. Explore diverse genres and cultures. Join our community of avid readers and embark on modern literary adventures. Indulge in the joy of storytelling!',
+    description: 'Discover captivating web novels translated to English. Join our community of avid readers and embark on modern literary adventures. Indulge in the joy of storytelling!',
     
   },
   plugins: [
@@ -24,16 +24,21 @@ module.exports = {
       options: {
         query: `
         {
-          allContentfulBlogPost {
+          allContentfulNovelChapters {
              
-                nodes {
+            edges {
+              node {
+                novelName {
                   slug
-                  updatedAt
-                  postTitle
-                  excerpt
+                  catRef {
+                    slug
+                  }
                 }
+                slug
               }
-              
+            }
+          }
+        }    
             
           
         }`,
@@ -45,7 +50,7 @@ module.exports = {
           
           return allPosts.map(post => {
             return {
-              path:`/${post.slug}`,
+              path:`/category/${post.novelName.catRef.slug}/${post.novelName.slug}/${post.slug}`,
               modifiedGmt: post.updatedAt,
             }
           })
@@ -85,7 +90,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [
-          "G-DM12CPJ9FV"
+          "G-F7VTW2K5EC"
         ],
       },
     },

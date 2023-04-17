@@ -30,14 +30,24 @@ const CatTemp = (props) => {
                       <div className="card-img-container">
                     {node.node.thumbnail ? <Link to={`/category/${node.node.catRef.slug}/${node.node.slug}`}><GatsbyImage image={node.node.thumbnail.gatsbyImageData} alt={'a gatsby image'} /></Link> : 
                     <Link to={`/category/${node.node.catRef.slug}/${node.node.slug}`}>
-                    <StaticImage src="../../images/thumbnailHolder.png"
+                    <StaticImage src="../../images/mthumbnail.png"
                     alt='default book cover'></StaticImage>
                     </Link>
                     }
                     </div>
                     <ul className="tag-list">
+                    {node.node.genreTags.map((item, index) => {
+                            if (item.title === props.pageContext.genreName){
+                                // console.log(node.node.contentful_id)
+                                return <li className='dark-b' key={`${node.node.contentful_id}-tag-${index}`}>{item.title}</li>
+                            }
+                            return (
+                                
+                                <li className='dark-b' key={`${node.node.contentful_id}-tag-${index}`} ><Link to={`/genres/${item.slug}`}>{item.title}</Link></li>
+                            )
+                        })}
                         {/* Need map over genre tags here */}
-                        <li className='dark-b'><Link to={`/genres/${node.node.genreTags[0].slug}`}>{node.node.genreTags[0].title}</Link></li>
+                        {/* <li className='dark-b'><Link to={`/genres/${node.node.genreTags[0].slug}`}>{node.node.genreTags[0].title}</Link></li> */}
                     </ul>
                     <Link to={`${node.node.slug}`}>
                     <h2 className="card-post-title">
