@@ -44,7 +44,7 @@ module.exports = {
         }`,
         resolveSiteUrl: () => theSite,
         resolvePages: ({
-          allContentfulBlogPost: { nodes: allPosts }
+          allContentfulNovelChapters: { nodes: allPosts }
         }) => {
           
           
