@@ -56,7 +56,7 @@ const BotBlock = () => {
                             {node.node.author ? <GatsbyImage image={node.node.author.avatar.gatsbyImageData} alt={node.node.author ? `${node.node.author.name}'s avatar` : undefined} />: <StaticImage src="../images/default-portrait.jpg" alt={node.node.author ? node.node.author.name : 'author avatar'}></StaticImage>}
                     
                         </div>
-                        <div className="card-author-name">
+                        <div className="card-author-name-line">
                        
                         {node.node.author ? node.node.author.name : undefined}
                         </div>

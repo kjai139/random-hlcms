@@ -40,6 +40,21 @@ exports.createPages = async function ({ actions, graphql }) {
             catRef {
               slug
             }
+            genreTags {
+              contentful_id
+              slug
+              title
+            }
+          }
+        }
+      }
+      allContentfulGenreTags {
+        edges {
+          node {
+            id
+            contentful_id
+            title
+            slug
           }
         }
       }
@@ -66,6 +81,25 @@ exports.createPages = async function ({ actions, graphql }) {
  
   const novelNames = data.allContentfulNovelName.edges
   const novelChapters = data.allContentfulNovelChapters.edges
+  const genreTags = data.allContentfulGenreTags.edges
+
+  genreTags.forEach(node => {
+    const genres = novelNames.filter(
+      novelName => novelName.node.genreTags.contentful_id === node.node.contentful_id
+    )
+
+    paginate({
+      createPage,
+      items: genres,
+      itemsPerPage:10,
+      pathPrefix: `/genres/${node.node.slug}`,
+      component: path.resolve('./src/components/templates/genretemplate.js'),
+      context: {
+        id: node.node.id,
+        genreName: node.node.title,
+      }
+    })
+  })
   
 
   
@@ -107,7 +141,7 @@ exports.createPages = async function ({ actions, graphql }) {
       chapter => chapter.node.novelName.contentful_id === novelName.node.contentful_id
     )
 
-    console.log(novelChaptersForNovel, 'filtered lists')
+    // console.log(novelChaptersForNovel, 'filtered lists')
 
     paginate({
       createPage,

@@ -7,7 +7,7 @@ import Footer from '../../components/footer'
 import defaultPort from "../../images/default-portrait.jpg"
 import Seo from '../seo'
 
-const CatTemp = (props) => {
+const GenTemp = (props) => {
 
     console.log(props, 'from catTemp')
     const pageNumber = props.pageContext.pageNumber
@@ -19,12 +19,12 @@ const CatTemp = (props) => {
     return (
       <div id="App"> 
           <div id="top-section-container">
-          <HeaderNav headerTitle={`${categoryPosts[0].node.catRef.categoryName}`} inArc={true}/>
+          <HeaderNav headerTitle={props.pageContext.genreName} inArc={true}/>
           </div>
            <div id='bot-section-container'>
               <div className='cata-content-container'>
                 {categoryPosts && categoryPosts.map((node => {
-                  console.log(node.node.slug)
+                  
                   return (
                     <div className='cata-nav-cards' key={node.node.contentful_id}>
                       <div className="card-img-container">
@@ -37,7 +37,7 @@ const CatTemp = (props) => {
                     </div>
                     <ul className="tag-list">
                         {/* Need map over genre tags here */}
-                        <li className='dark-b'><Link to={`/genres/${node.node.genreTags[0].slug}`}>{node.node.genreTags[0].title}</Link></li>
+                        <li className='dark-b'><Link to={`/genre/${node.node.genreTags[0].slug}`}>{node.node.genreTags[0].title}</Link></li>
                     </ul>
                     <Link to={`${node.node.slug}`}>
                     <h2 className="card-post-title">
@@ -80,33 +80,29 @@ const CatTemp = (props) => {
 
 export const query = graphql`
     query($id: String!, $skip: Int!, $limit: Int!) {
-      allContentfulNovelName(filter: {catRef: {id: {eq: $id}}}, 
-        limit: $limit, 
-        skip: $skip
-        ) {
-          edges {
-            node {
-              thumbnail{
-                gatsbyImageData
-                description
-              }
-              slug
-              title
-              contentful_id
-              catRef {
-                categoryName
-                slug
-              }
-              genreTags {
+        allContentfulNovelName(limit: $limit, 
+            skip: $skip, filter: {genreTags: {elemMatch: {id: {eq: $id}}}}) {
+            edges {
+              node {
                 title
-                slug
+                catRef{
+                    slug
+                  }
+                thumbnail {
+                  gatsbyImageData
+                  title
+                }
+                contentful_id
+                genreTags {
+                    slug
+                    title
+                  }
               }
             }
           }
-      }
     }
 `
 
-export const Head = ({data}) =>  <Seo title={data.allContentfulNovelName.edges[0].node.catRef.categoryName} description={`${data.allContentfulNovelName.edges[0].node.catRef.categoryName} in English`}></Seo>
+export const Head = ({data}) =>  <Seo title={`Genre - ${data.allContentfulNovelName.edges[0].node.genreTags.title}`} description={`${data.allContentfulNovelName.edges[0].node.genreTags.title} web novels translated into English`}></Seo>
 
-export default CatTemp
+export default GenTemp

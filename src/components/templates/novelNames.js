@@ -20,6 +20,10 @@ const NovelNameTemplate = (props) => {
             </div>
     <div className='archive-content'>
         <div className='main-content'>
+            {novelName.thumbnail && 
+            <div className='main-content-img-cont'>
+            <GatsbyImage image={novelName.thumbnail.gatsbyImageData} alt={novelName.thumbnail.title}></GatsbyImage>
+            </div>}
             <h2>{novelName.title}</h2>
             <p>{novelName.synopsis ? novelName.synopsis.synopsis : 'No synopsis yet...'}</p>
         </div>
@@ -33,18 +37,7 @@ const NovelNameTemplate = (props) => {
                 <div className='archive-list-entry'>
                 
                     <span className='btn-title-txt'>{blogPost.node.slug.split('-').pop()}</span>
-                    {/*
-                    <div className='archive-author-details'>
-                    <Link to={`/authors/${blogPost.node.author.slug}`}>
-                    <div className='archive-avatar-div'>
-                        <div className='archive-avatar-img-container'>
-                        <GatsbyImage image={blogPost.node.author.avatar.gatsbyImageData} alt={`${blogPost.node.author.name}'s avatar`}></GatsbyImage>
-                        </div>
-                        {blogPost.node.author.name}
-                    </div>
-                    </Link>
-                    <span className='card-post-date'>{blogPost.node.createdAt}</span>
-                    </div> */}
+                   
                 </div>
                 
                 
@@ -86,6 +79,8 @@ export const query = graphql`
               }
               title
               thumbnail {
+                gatsbyImageData
+                title
                 url
               }
               synopsis {
