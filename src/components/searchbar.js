@@ -19,8 +19,8 @@ const Searchbar = ({isBottom = false}) => {
 
     
 
-    console.log(window.__FLEXSEARCH__.en.index, 'search index')
-    console.log(window.__FLEXSEARCH__.en.store, 'the searchbar store')
+    // console.log(window.__FLEXSEARCH__.en.index, 'search index')
+    // console.log(window.__FLEXSEARCH__.en.store, 'the searchbar store')
 
     const getSearchResults = (query) => {
         
@@ -48,8 +48,8 @@ const Searchbar = ({isBottom = false}) => {
             
             
             setIsResultOut(true)
-            console.log(query, 'qery')
-            console.log(results, 'results')
+            // console.log(query, 'qery')
+            // console.log(results, 'results')
             
         }
     }
@@ -67,7 +67,7 @@ const Searchbar = ({isBottom = false}) => {
             setResults([])
         }
         setQuery(value)
-        console.log('query set to', query)
+        // console.log('query set to', query)
         getSearchResults(value)
     }
     

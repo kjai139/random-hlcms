@@ -25,7 +25,7 @@ const HeaderNav = ({headerTitle, headerTxt, curPage, inCat=false, inArc=false}) 
         }
     `)
 
-    console.log(data, 'data from topblock')
+    // console.log(data, 'data from topblock')
     // console.log(inCat, curPage)
     return (
             

@@ -9,7 +9,7 @@ import Seo from '../seo'
 
 const CatTemp = (props) => {
 
-    console.log(props, 'from catTemp')
+    // console.log(props, 'from catTemp')
     const pageNumber = props.pageContext.pageNumber
     const numberOfPages = props.pageContext.numberOfPages
     const categoryPosts = props.data.allContentfulNovelName.edges
@@ -24,7 +24,7 @@ const CatTemp = (props) => {
            <div id='bot-section-container'>
               <div className='cata-content-container'>
                 {categoryPosts && categoryPosts.map((node => {
-                  console.log(node.node.slug)
+                  // console.log(node.node.slug)
                   return (
                     <div className='cata-nav-cards' key={node.node.contentful_id}>
                       <div className="card-img-container">

@@ -15,17 +15,17 @@ const Bold = ({ children }) => <span className='bold'>{children}</span>
 const Text = ({ children }) => <p className='chapter-txt'>{children}</p>
 
 const ChaptersTemp = (props) => {
-    console.log(props, 'nvlchpts')
-    console.log(props.data.contentfulNovelChapters.novelName.novelchapters.length, 'chapter length')
+    // console.log(props, 'nvlchpts')
+    // console.log(props.data.contentfulNovelChapters.novelName.novelchapters.length, 'chapter length')
 
     const totalCh = props.data.contentfulNovelChapters.novelName.novelchapters.length
     const currentCh = parseInt(props.data.contentfulNovelChapters.slug.split('-').pop())
     
-    console.log(totalCh > currentCh, currentCh, 'page check')
+    // console.log(totalCh > currentCh, currentCh, 'page check')
     const prevSlug = props.data.contentfulNovelChapters.slug.replace(currentCh, currentCh - 1)
     const nextSlug = props.data.contentfulNovelChapters.slug.replace(currentCh, currentCh + 1)
 
-    console.log(prevSlug, nextSlug)
+    // console.log(prevSlug, nextSlug)
 
     const disqusConfig = {
       url:'http://localhost:8000',
@@ -64,7 +64,7 @@ const ChaptersTemp = (props) => {
                 // console.log(node.data.target.description)
       
                 let image = getImage(node.data.target)
-                console.log(image)
+                // console.log(image)
                 return (
                   <div className={image.width < 600 ? 'post-content-img small-img' : 'post-content-img'}>
                     

@@ -12,7 +12,7 @@ const Bold = ({ children }) => <span className='bold'>{children}</span>
 const Text = ({ children }) => <p className='chapter-txt'>{children}</p>
 
 const NovelNameTemplate = (props) => {
-    console.log(props, 'from novelnametemp')
+    // console.log(props, 'from novelnametemp')
     const blogPosts = props.data.allContentfulNovelChapters.edges
     const novelName = props.data.contentfulNovelName
     const numberOfPages = props.pageContext.numberOfPages
