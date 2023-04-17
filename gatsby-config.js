@@ -26,8 +26,8 @@ module.exports = {
         {
           allContentfulNovelChapters {
              
-            edges {
-              node {
+           
+              nodes {
                 novelName {
                   slug
                   catRef {
@@ -37,7 +37,7 @@ module.exports = {
                 slug
               }
             }
-          }
+          
             
             
           
