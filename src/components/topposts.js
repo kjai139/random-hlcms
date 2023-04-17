@@ -3,12 +3,13 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
 
+
 const TopPosts = () => {
 
     const data = useStaticQuery(graphql`
    
     query{
-        allContentfulNovelChapters(sort: {createdAt: DESC}, limit: 2) {
+        allContentfulNovelChapters(sort: {createdAt: DESC}, limit: 3) {
             edges {
               node {
                 title
@@ -50,7 +51,13 @@ const TopPosts = () => {
                 return (
                     <div className="bot-nav-cards" key={node.node.contentful_id}>
                     <div className="card-img-container">
-                    {node.node.novelName.thumbnail && <Link to={`${node.node.slug}`}><GatsbyImage image={image} alt={node.node.novelName.thumbnail && node.node.novelName.thumbnail.title} /></Link> }
+                    {node.node.novelName.thumbnail ? <Link to={`/category/${node.node.novelName.catRef.slug}/${node.node.novelName.slug}/${node.node.slug}`}>
+                      <GatsbyImage image={image} alt={node.node.novelName.thumbnail && node.node.novelName.thumbnail.title} /></Link> :
+                    <Link to={`/category/${node.node.novelName.catRef.slug}/${node.node.novelName.slug}/${node.node.slug}`}>
+                      <StaticImage src='../images/thumbnailHolder.png' alt='default thumbnail holder' />
+                    </Link>
+
+                    }
                        
     
                     </div>

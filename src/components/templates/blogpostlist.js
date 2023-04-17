@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import * as React from 'react'
-import Topblock from '../topblock';
+import HeaderNav from '../headerNav';
 import Seo from '../seo';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import Footer from '../footer';
@@ -10,40 +10,42 @@ import Footer from '../footer';
 
 const BlogPostList = ({ data, pageContext }) => {
     const { humanPageNumber, pageNumber, numberOfPages } = pageContext;
-    const blogPosts = data.allContentfulBlogPost.edges;
+    const blogPosts = data.allContentfulNovelChapters.edges;
 
     // console.log(data.allContentfulBlogPost, 'from blogpostlist')
 
   return (
     <div id="App"> 
       <div id="top-section-container">
-        <Topblock headerTitle='Post Archive' curPage="home" inArc={true} />
+        <HeaderNav headerTitle='Post Archive' curPage="home" inArc={true} />
         </div>
     <div className='archive-content'>
       {/* Render list of blog posts */}
-      <ul className='archive-list'>
+      <ul className='archive-list-line'>
         {blogPosts.map(blogPost => (
-          <li key={blogPost.node.slug}>
+          <Link to={`/category/${blogPost.node.novelName.catRef.slug}/${blogPost.node.novelName.slug}/${blogPost.node.slug}`} key={blogPost.node.contentful_id}>
+          <li className='archive-list-entry-li'>
             
-              <div className='archive-list-entry'>
-                <Link to={`/${blogPost.node.slug}`}>
-                <span>{blogPost.node.postTitle}</span>
-                </Link>
+              <div className='archive-list-entry-line'>
+                
+                <span className='archive-list-title'>{blogPost.node.title}</span>
+                
                 <div className='archive-author-details'>
-                  <Link to={`/authors/${blogPost.node.soleAuthor[0].slug}`}>
+                  
                   <div className='archive-avatar-div'>
                     <div className='archive-avatar-img-container'>
                       
-                    <GatsbyImage image={blogPost.node.soleAuthor[0].avatar.gatsbyImageData} alt={`${blogPost.node.soleAuthor[0].name}'s avatar`}></GatsbyImage>
+                    <GatsbyImage image={blogPost.node.author.avatar.gatsbyImageData} alt={`${blogPost.node.author.name}'s avatar`}></GatsbyImage>
                     </div>
-                    {blogPost.node.soleAuthor[0].name}
+                    {blogPost.node.author.name}
                   </div>
-                  </Link>
-                  <span className='card-post-date'>{blogPost.node.createdAt}</span>
+                 
+                  <span className='card-post-date-archive'>{blogPost.node.createdAt}</span>
                 </div>
               </div>
               
           </li>
+          </Link>
         ))}
       </ul>
 
@@ -68,7 +70,38 @@ const BlogPostList = ({ data, pageContext }) => {
   );
 };
 
-// export const query = graphql`
+export const query = graphql`
+query($skip: Int!, $limit: Int!){
+  allContentfulNovelChapters(skip: $skip, limit: $limit, sort: {createdAt: DESC}) {
+      edges {
+        node {
+          title
+          slug
+          contentful_id
+          novelName {
+            thumbnail {
+              gatsbyImageData
+              description
+              title
+            }
+            catRef {
+              categoryName
+              slug
+            }
+            slug
+          }
+          author {
+            name
+            slug
+            avatar {
+              gatsbyImageData
+            }
+          }
+          createdAt(formatString: "MMMM DD, YYYY")
+        }
+      }
+    }
+  }`
 //   query($skip: Int!, $limit: Int!) {
 //     allContentfulBlogPost(skip: $skip, limit: $limit, sort: {createdAt: DESC}) {
 //         edges {
@@ -89,7 +122,7 @@ const BlogPostList = ({ data, pageContext }) => {
 //   }
 // `;
 
-export const Head = () => <Seo title='Deskego - Post Archive' description='An archive of all blog posts' />
+export const Head = () => <Seo title='Post Archive | wnNexus' description='An archive of all blog posts' />
 
 export default BlogPostList
 

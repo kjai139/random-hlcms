@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby'
 import * as React from 'react'
-import Topblock from '../topblock'
+import HeaderNav from '../headerNav'
 import Footer from '../footer'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
@@ -16,19 +16,20 @@ const NovelNameTemplate = (props) => {
     return (
         <div id="App"> 
             <div id="top-section-container">
-            <Topblock headerTitle={`${novelName.title}`} inArc={true}/>
+            <HeaderNav headerTitle={`${novelName.title}`} inArc={true}/>
             </div>
     <div className='archive-content'>
         <div className='main-content'>
             <h2>{novelName.title}</h2>
-            <p>{novelName.synopsis.synopsis}</p>
+            <p>{novelName.synopsis ? novelName.synopsis.synopsis : 'No synopsis yet...'}</p>
         </div>
         <div className='ch-list-div'>
         <h2>Chapters</h2>
          <ul className='archive-list'>
             {blogPosts.map(blogPost => (
-            <li key={blogPost.node.contentful_id}>
-                <Link to={`./${blogPost.node.slug}`}>
+            <Link to={`./${blogPost.node.slug}`} key={blogPost.node.contentful_id}>
+            <li>
+                
                 <div className='archive-list-entry'>
                 
                     <span className='btn-title-txt'>{blogPost.node.slug.split('-').pop()}</span>
@@ -45,9 +46,10 @@ const NovelNameTemplate = (props) => {
                     <span className='card-post-date'>{blogPost.node.createdAt}</span>
                     </div> */}
                 </div>
-                </Link>
+                
                 
                 </li>
+                </Link>
                 ))}
         </ul>
         </div>

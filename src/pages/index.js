@@ -1,5 +1,5 @@
 import * as React from "react"
-import Topblock from "../components/topblock"
+import HeaderNav from "../components/headerNav"
 import Seo from "../components/seo"
 
 import BotBlock from "../components/botblock"
@@ -14,15 +14,15 @@ const HomePage = () => {
   return (
     <div id="App"> 
       <div id="top-section-container">
-        <Topblock curPage="home"/>
-        <div className="section-headers"><h2>Latest Releases</h2></div>
+        <HeaderNav curPage="home"/>
+        {/* <div className="section-headers"><h2>Latest Releases</h2></div> */}
         <TopPosts />
       </div>
     <BotBlock />
     <div className='view-more-cont'>
-                {/* <Link to='/archive'>
-                <button className='view-more-btn'>VIEW MORE POSTS</button>
-                </Link> */}
+                <Link to='/archive'>
+                <button className='view-more-btn'>VIEW OLDER POSTS</button>
+                </Link>
             </div>
     <footer id="footer-section-container">
       <Footer />

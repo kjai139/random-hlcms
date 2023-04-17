@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby'
 import * as React from 'react'
 import Seo from '../../../components/seo'
-import Topblock from '../../../components/topblock'
+import HeaderNav from '../../../components/headerNav'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import  Footer  from '../../../components/footer'
 import { Link } from 'gatsby'
@@ -10,7 +10,7 @@ const AuthorPanel = ({data}) => {
         return (
             <div id="App"> 
                 <div id="top-section-container">
-                    <Topblock headerTitle={data.contentfulAuthorInfo.name} headerTxt='Writer' curPage="authors2" inArc={true} inCat={false}></Topblock>
+                    <HeaderNav headerTitle={data.contentfulAuthorInfo.name} headerTxt='Translator' curPage="authors2" inArc={true} inCat={false}></HeaderNav>
                 </div>
                 <div id="bot-section-container">
                     <div className='authors-content'>
@@ -20,7 +20,7 @@ const AuthorPanel = ({data}) => {
                     <GatsbyImage image={data.contentfulAuthorInfo.avatar.gatsbyImageData} alt={data.contentfulAuthorInfo.avatar.description} /> : null }
                     </div>
                     <div className='authors-details-description'>
-                        <h3 className='authors-details-head'>Author</h3>
+                        <h3 className='authors-details-head'>Translator</h3>
                         <h1>{data.contentfulAuthorInfo.name}</h1>
                         <p>{data.contentfulAuthorInfo.about}</p>
                     </div>

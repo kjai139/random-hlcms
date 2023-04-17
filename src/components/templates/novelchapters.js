@@ -3,10 +3,11 @@ import * as React from 'react'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import Topblock from '../topblock'
+import HeaderNav from '../headerNav'
 import Seo from '../seo'
 import Footer from '../footer'
 import { Link } from 'gatsby'
+import { Disqus } from 'gatsby-plugin-disqus'
 
 
 
@@ -25,6 +26,12 @@ const ChaptersTemp = (props) => {
     const nextSlug = props.data.contentfulNovelChapters.slug.replace(currentCh, currentCh + 1)
 
     console.log(prevSlug, nextSlug)
+
+    const disqusConfig = {
+      url:'http://localhost:8000',
+      identifier: props.data.contentfulNovelChapters.contentful_id,
+      title:props.data.contentfulNovelChapters.title,
+    }
 
 
 
@@ -98,7 +105,7 @@ const ChaptersTemp = (props) => {
     return (
         <div id="App"> 
             <div id="top-section-container">
-                <Topblock headerTitle={props.data.contentfulNovelChapters.title}></Topblock>
+                <HeaderNav headerTitle={props.data.contentfulNovelChapters.title}></HeaderNav>
             
             </div>
             <div className='blogpost-body-container'>
@@ -116,8 +123,16 @@ const ChaptersTemp = (props) => {
                     }
                     {currentCh === totalCh ? null : <Link to={`../${nextSlug}`}><button className='ch-nav-btns'>Next Chapter</button></Link>}
                 </nav>
+
+                <div id='disqus-container'>
+                <Disqus config={disqusConfig}/>
+                </div>
+
+         
+                
                 
                 </div>
+                
                 <div className='blogpost-ad-block'>
 
                 </div>
@@ -147,6 +162,7 @@ export const query = graphql`
             createdAt(formatString: "MMMM DD, YYYY")
             slug
             title
+            contentful_id
             body {
                 raw
                 references {

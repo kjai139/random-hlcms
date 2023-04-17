@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import Topblock from '../../components/topblock'
+import HeaderNav from '../../components/headerNav'
 import { Link } from 'gatsby'
 import Footer from '../../components/footer'
 import { graphql } from 'gatsby'
@@ -11,7 +11,7 @@ const AuthorPage = ({data}) => {
     return (
         <div id="App"> 
             <div id="top-section-container">
-            <Topblock headerTitle="Our Authors" headerTxt="List of our best writers" curPage="authors" inCat={false}></Topblock>
+            <HeaderNav headerTitle="Our Authors" headerTxt="List of our best writers" curPage="authors" inCat={false}></HeaderNav>
             </div>
             <div id="bot-section-container">
             <div className='authors-content-container'>

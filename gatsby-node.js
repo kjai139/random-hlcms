@@ -43,7 +43,7 @@ exports.createPages = async function ({ actions, graphql }) {
           }
         }
       }
-      allContentfulNovelChapters {
+      allContentfulNovelChapters(sort: {createdAt: DESC}) {
         edges {
           node {
             slug
@@ -98,6 +98,8 @@ exports.createPages = async function ({ actions, graphql }) {
         id: node.node.id
       }
     })
+
+    
   })
 
   novelNames.forEach(novelName => {
@@ -118,26 +120,14 @@ exports.createPages = async function ({ actions, graphql }) {
       }
     })
   })
-
+  paginate({
+    createPage,
+    items: novelChapters,
+    itemsPerPage: 10,
+    pathPrefix: '/archive',
+    component: path.resolve('./src/components/templates/blogpostlist.js')
+  });
   
 }  
 
     
-
-//     // console.log(archiveResult.data)
-//     // console.log(reviewsResult.data)
-//     const blogPosts = archiveResult.data.allContentfulBlogPost.nodes
-    
-    
-//     paginate({
-//         createPage,
-//         items: blogPosts,
-//         itemsPerPage: 5,
-//         pathPrefix: '/archive',
-//         component: path.resolve('./src/components/templates/blogpostlist.js')
-//       });
-
-    
-
-   
-// }

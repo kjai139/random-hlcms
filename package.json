@@ -18,8 +18,7 @@
     "dotenv": "^16.0.3",
     "gatsby": "^5.8.1",
     "gatsby-awesome-pagination": "^0.3.8",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "gatsby-plugin-disqus": "^1.2.6",
     "gatsby-plugin-flexsearch": "^1.0.3",
     "gatsby-plugin-google-gtag": "^5.8.0",
     "gatsby-plugin-image": "^3.8.0",
@@ -28,6 +27,8 @@
     "gatsby-plugin-sitemap": "^6.8.0",
     "gatsby-source-contentful": "^8.8.0",
     "gatsby-source-filesystem": "^5.8.0",
-    "gatsby-transformer-sharp": "^5.8.0"
+    "gatsby-transformer-sharp": "^5.8.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

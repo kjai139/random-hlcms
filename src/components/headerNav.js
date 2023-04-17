@@ -8,7 +8,7 @@ import logo from "../images/logo.png"
 
 
 
-const Topblock = ({headerTitle, headerTxt, curPage, inCat=false, inArc=false}) => {
+const HeaderNav = ({headerTitle, headerTxt, curPage, inCat=false, inArc=false}) => {
 
     const data = useStaticQuery(graphql`
         query {
@@ -71,7 +71,9 @@ const Topblock = ({headerTitle, headerTxt, curPage, inCat=false, inArc=false}) =
             <div id="top-section-bottom">
                 <div className="top-section-headers-cont">
                     <h1 className="top-sect-header">
-                        {headerTitle ? headerTitle : 'wnNexus'}
+                        {curPage === 'home' ? 'Latest Releases' : null}
+                        { curPage !== 'home' && headerTitle ? headerTitle : null}
+                        
                     </h1>
                    
                     {headerTxt? <p className="top-sect-header-txt"> {headerTxt}</p> : null}
@@ -89,4 +91,4 @@ const Topblock = ({headerTitle, headerTxt, curPage, inCat=false, inArc=false}) =
 
 
 
-export default Topblock
+export default HeaderNav

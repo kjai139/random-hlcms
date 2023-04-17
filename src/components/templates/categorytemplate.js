@@ -2,7 +2,7 @@ import { graphql } from 'gatsby'
 import * as React from 'react'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
-import Topblock from '../topblock'
+import HeaderNav from '../headerNav'
 import Footer from '../../components/footer'
 import defaultPort from "../../images/default-portrait.jpg"
 import Seo from '../seo'
@@ -19,7 +19,7 @@ const CatTemp = (props) => {
     return (
       <div id="App"> 
           <div id="top-section-container">
-          <Topblock headerTitle={`${categoryPosts[0].node.catRef.categoryName}`} inArc={true}/>
+          <HeaderNav headerTitle={`${categoryPosts[0].node.catRef.categoryName}`} inArc={true}/>
           </div>
            <div id='bot-section-container'>
               <div className='cata-content-container'>
@@ -30,7 +30,7 @@ const CatTemp = (props) => {
                       <div className="card-img-container">
                     {node.node.thumbnail ? <Link to={`/category/${node.node.catRef.slug}/${node.node.slug}`}><GatsbyImage image={node.node.thumbnail.gatsbyImageData} alt={'a gatsby image'} /></Link> : 
                     <Link to={`/category/${node.node.catRef.slug}/${node.node.slug}`}>
-                    <StaticImage src="../../images/default-portrait.jpg"
+                    <StaticImage src="../../images/thumbnailHolder.png"
                     alt='default book cover'></StaticImage>
                     </Link>
                     }

@@ -90,6 +90,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `wnnexus`
+      }
+    },
+    {
       resolve: `gatsby-plugin-flexsearch`,
       options: {
         languages: ['en'],
