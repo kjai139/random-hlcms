@@ -9,7 +9,7 @@ import Seo from '../seo'
 
 const GenTemp = (props) => {
 
-    console.log(props, 'from catTemp')
+    // console.log(props, 'from catTemp')
     const pageNumber = props.pageContext.pageNumber
     const numberOfPages = props.pageContext.numberOfPages
     const categoryPosts = props.data.allContentfulNovelName.edges
@@ -113,6 +113,6 @@ export const query = graphql`
     }
 `
 
-export const Head = ({data}) =>  <Seo title={`Genre - ${data.allContentfulNovelName.edges[0].node.genreTags.title}`} description={`${data.allContentfulNovelName.edges[0].node.genreTags.title} web novels translated into English`}></Seo>
+export const Head = (props) =>  <Seo title={`Genre - ${props.pageContext.genreName}`} description={`${props.pageContext.genreName} web novels translated into English`}></Seo>
 
 export default GenTemp
