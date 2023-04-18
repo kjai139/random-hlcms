@@ -331,7 +331,7 @@ a:visited {
 .card-post-title {
   font-size: 1.25rem;
   text-align: center;
-  
+  margin-bottom: 1rem;
   color: var(--darkthemeTextColor);
 }
 
@@ -959,7 +959,9 @@ tr {
 }
 
 @media (prefers-color-scheme: dark) {
-  
+  .bot-nav-cards {
+    background-color: #f0f0f0;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -1174,9 +1176,7 @@ tr {
 }
 
 @media screen and (max-width: 500px) {
-  html {
-    font-size: 1rem;
-  }
+  
 
   .archive-list-entry-li {
     
