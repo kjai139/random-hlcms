@@ -19,7 +19,7 @@ const ChaptersTemp = (props) => {
     // console.log(props, 'nvlchpts')
 
     const disqusLink = props.pageContext.disqusUrl
-    console.log(disqusLink)
+    // console.log(disqusLink)
     const warningFlag = props.data.contentfulNovelChapters.novelName.genreTags.some(obj => obj.title.includes('Ero'))
     // console.log(props.data.contentfulNovelChapters.novelName.novelchapters.length, 'chapter length')
 

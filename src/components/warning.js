@@ -13,15 +13,15 @@ const WarningComp = () => {
     useEffect(() => {
         const isAcknowledged = localStorage.getItem('warningAcknowledged')
         const numberOfVisits = parseInt(localStorage.getItem('numOfVisit'))
-        console.log(isAcknowledged, numberOfVisits, 'acknowledge num check')
+        // console.log(isAcknowledged, numberOfVisits, 'acknowledge num check')
         if (isAcknowledged) {
             localStorage.setItem('numOfVisit', numberOfVisits + 1)
-            console.log(localStorage.getItem('numOfVisit'), '< num added 1 ')
+            // console.log(localStorage.getItem('numOfVisit'), '< num added 1 ')
             setWarningAcknowledged(true)
             if (numberOfVisits % 5 === 0) {
                 localStorage.removeItem('warningAcknowledged')
                 localStorage.removeItem('numOfVisit')
-                console.log('storage removed')
+                // console.log('storage removed')
             }
         }
     }, [])
