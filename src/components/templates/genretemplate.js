@@ -6,6 +6,7 @@ import HeaderNav from '../headerNav'
 import Footer from '../../components/footer'
 import defaultPort from "../../images/default-portrait.jpg"
 import Seo from '../seo'
+import WarningComp from '../warning'
 
 const GenTemp = (props) => {
 
@@ -18,6 +19,7 @@ const GenTemp = (props) => {
 
     return (
       <div id="App"> 
+          {props.pageContext.genreName === 'Ero' && <WarningComp></WarningComp>}
           <div id="top-section-container">
           <HeaderNav headerTitle={props.pageContext.genreName} inArc={true}/>
           </div>

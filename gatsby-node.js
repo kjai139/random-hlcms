@@ -116,7 +116,8 @@ exports.createPages = async function ({ actions, graphql }) {
       path: `category/${node.node.novelName.catRef.slug}/${node.node.novelName.slug}/${slug}`,
       component: require.resolve(`./src/components/templates/novelchapters.js`),
       context: {
-        id: node.node.id
+        id: node.node.id,
+        disqusUrl:`category/${node.node.novelName.catRef.slug}/${node.node.novelName.slug}/${slug}`
       }
     })
 

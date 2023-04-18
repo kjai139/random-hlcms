@@ -491,6 +491,63 @@ a:visited {
   z-index: 9990;
 }
 
+.warning-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 9998;
+  backdrop-filter: blur(5px);
+}
+
+.warning-title {
+  
+  text-align: center;
+  padding: 1rem;
+  color: red;
+}
+
+.warning-btns {
+  flex: 1;
+  font-size: 1rem;
+  padding: 1rem;
+  font-weight: bold;
+  background-color: var(--darkthemeButtons);
+  border: 0;
+  color: var(--darkthemeTextColor);
+  border-radius: 8px;
+  
+}
+
+.warning-btns:hover {
+  background-color: var(--darkthemeHighlight);
+  cursor: pointer;
+}
+
+.warning-btn-cont {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.warning-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--darkthemeTextColor);
+  padding: 5px;
+  border: 2px solid var(--darkthemeTextColor);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 8px;
+  background-color: var(--darkthemeHeadandFoot);
+}
+
 .hidden {
   display: none;
 }
@@ -1176,7 +1233,9 @@ tr {
 }
 
 @media screen and (max-width: 500px) {
-  
+  .warning-btn-cont {
+    flex-direction: column;
+  }
 
   .archive-list-entry-li {
     

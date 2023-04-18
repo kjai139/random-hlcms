@@ -8,6 +8,7 @@ import Seo from '../seo'
 import Footer from '../footer'
 import { Link } from 'gatsby'
 import { Disqus } from 'gatsby-plugin-disqus'
+import WarningComp from '../warning'
 
 
 
@@ -16,6 +17,10 @@ const Text = ({ children }) => <p className='chapter-txt'>{children}</p>
 
 const ChaptersTemp = (props) => {
     // console.log(props, 'nvlchpts')
+
+    const disqusLink = props.pageContext.disqusUrl
+    console.log(disqusLink)
+    const warningFlag = props.data.contentfulNovelChapters.novelName.genreTags.some(obj => obj.title.includes('Ero'))
     // console.log(props.data.contentfulNovelChapters.novelName.novelchapters.length, 'chapter length')
 
     const totalCh = props.data.contentfulNovelChapters.novelName.novelchapters.length
@@ -28,7 +33,7 @@ const ChaptersTemp = (props) => {
     // console.log(prevSlug, nextSlug)
 
     const disqusConfig = {
-      url:'http://localhost:8000',
+      url:`https://tl-nexus.xyz/${disqusLink}`,
       identifier: props.data.contentfulNovelChapters.contentful_id,
       title:props.data.contentfulNovelChapters.title,
     }
@@ -104,6 +109,7 @@ const ChaptersTemp = (props) => {
     }
     return (
         <div id="App"> 
+            {warningFlag && <WarningComp></WarningComp>}
             <div id="top-section-container">
                 <HeaderNav headerTitle={props.data.contentfulNovelChapters.title}></HeaderNav>
             
@@ -151,6 +157,9 @@ export const query = graphql`
         contentfulNovelChapters(id: {eq: $id}) {
             novelName {
                 title
+                genreTags {
+                  title
+                }
                 novelchapters {
                   slug
                 }
