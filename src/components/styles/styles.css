@@ -16,7 +16,7 @@
   --contentWidth: 1100px;
 
   --darkthemeTextColor: #FFFFFF;
-  --darkthemeBodybgColor: #292929;
+  --darkthemeBodybgColor: #383838;
   --darkthemeHighlight: #00CFFF;
   --darkthemeTopBotColor: #212121;
   --darkthemeButtons: #757575;
@@ -959,9 +959,7 @@ tr {
 }
 
 @media (prefers-color-scheme: dark) {
-  .bot-nav-cards {
-    background-color: var(--darkthemeBodybgColor);
-  }
+  
 }
 
 @media screen and (min-width: 1024px) {
