@@ -958,6 +958,12 @@ tr {
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 
+@media (prefers-color-scheme: dark) {
+  .bot-nav-cards {
+    background-color: var(--darkthemeBodybgColor);
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .top-sect-header {
     text-align: center;
