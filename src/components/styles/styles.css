@@ -56,6 +56,10 @@ body {
   background-color: var(--darkthemeBodybgColor);
 }
 
+.regular-links {
+  color: var(--darkthemeHighlight);
+}
+
 #top-section-container {
   background-color: var(--darkthemeHeadandFoot);
 }
@@ -71,6 +75,8 @@ body {
     color: var(--darkthemeTopBotColor);
     cursor: pointer;
 }
+
+
 
 .btn-title-txt {
     font-size: 1rem;

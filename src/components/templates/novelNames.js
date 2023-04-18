@@ -97,7 +97,7 @@ const NovelNameTemplate = (props) => {
             <GatsbyImage image={novelName.thumbnail.gatsbyImageData} alt={novelName.thumbnail.title}></GatsbyImage>
             </div>}
             <h2>{novelName.title}</h2>
-            <p>{novelName.storySynopsis ? renderRichText(novelName.storySynopsis, options) : 'No synopsis yet...'}</p>
+            {novelName.storySynopsis ? renderRichText(novelName.storySynopsis, options) : 'No synopsis yet...'}
         </div>
         <div className='ch-list-div'>
         <h2>Chapters</h2>
