@@ -509,6 +509,25 @@ a:visited {
   color: red;
 }
 
+.ch-author-img {
+  max-width: 40px;
+  border-radius: 50%;
+  border: 2px solid;
+  overflow: hidden;
+}
+
+.ch-author-div {
+  color: var(--darkthemeTextColor);
+  max-width: 1024px;
+  display: flex;
+  padding: 0px 1rem 0px 1rem;
+  background-color: var(--darkthemeHeadandFoot);
+  margin: 0 auto 2rem auto;
+  color: #e5e5e5;
+  justify-content: center;
+  align-items: center;
+}
+
 .warning-btns {
   flex: 1;
   font-size: 1rem;

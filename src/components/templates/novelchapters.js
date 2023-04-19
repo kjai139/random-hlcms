@@ -16,7 +16,7 @@ const Bold = ({ children }) => <span className='bold'>{children}</span>
 const Text = ({ children }) => <p className='chapter-txt'>{children}</p>
 
 const ChaptersTemp = (props) => {
-    // console.log(props, 'nvlchpts')
+    console.log(props, 'nvlchpts')
 
     const disqusLink = props.pageContext.disqusUrl
     // console.log(disqusLink)
@@ -112,7 +112,13 @@ const ChaptersTemp = (props) => {
             {warningFlag && <WarningComp></WarningComp>}
             <div id="top-section-container">
                 <HeaderNav headerTitle={props.data.contentfulNovelChapters.title}></HeaderNav>
-            
+                <div className='ch-author-div'>
+                  <div className='ch-author-img'>
+                    <GatsbyImage image={props.data.contentfulNovelChapters.author.avatar.gatsbyImageData}></GatsbyImage>
+
+                  </div>
+                  <h6 className='ch-author-details'>Posted by {props.data.contentfulNovelChapters.author.name}, {props.data.contentfulNovelChapters.createdAt}</h6>
+                </div>
             </div>
             <div className='blogpost-body-container'>
                 <div className='blogpost-ad-block-top'>
@@ -160,6 +166,7 @@ export const query = graphql`
                 genreTags {
                   title
                 }
+                
                 novelchapters {
                   slug
                 }
@@ -167,6 +174,13 @@ export const query = graphql`
                     gatsbyImageData
                     url
                 }
+            }
+            author {
+              avatar {
+                gatsbyImageData   
+              }
+              name
+              slug
             }
             createdAt(formatString: "MMMM DD, YYYY")
             slug
