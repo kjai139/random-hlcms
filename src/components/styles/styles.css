@@ -516,6 +516,10 @@ a:visited {
   overflow: hidden;
 }
 
+.ch-author-details {
+  font-size: 14px;
+}
+
 .ch-author-div {
   color: var(--darkthemeTextColor);
   max-width: 1024px;
@@ -526,6 +530,7 @@ a:visited {
   color: #e5e5e5;
   justify-content: center;
   align-items: center;
+  gap:1rem;
 }
 
 .warning-btns {
