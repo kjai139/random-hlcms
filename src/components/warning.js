@@ -51,7 +51,7 @@ const WarningComp = ({acknowledged}) => {
 
     return (
         <>
-        {safariCookieMsg != '' ? <div className='cookie-msg'>{safariCookieMsg}</div> : null}
+        {safariCookieMsg.length > 2 && <div className='cookie-msg'>{safariCookieMsg}</div>}
         {!warningAcknowledged && displayOverlay && 
         <div className='warning-overlay'>
             <div className='warning-container'>
