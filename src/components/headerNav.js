@@ -1,6 +1,6 @@
 
 import * as React from "react"
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { graphql, Link, useStaticQuery} from "gatsby"
 import Searchbar from "./searchbar"
 import { StaticImage } from "gatsby-plugin-image"
 
@@ -8,7 +8,7 @@ import { StaticImage } from "gatsby-plugin-image"
 
 
 
-const HeaderNav = ({headerTitle, headerTxt, curPage, inCat=false, inArc=false}) => {
+const HeaderNav = ({headerTitle, headerTxt, curPage='', inCat=false, inArc=false}) => {
 
     const data = useStaticQuery(graphql`
         query {
@@ -24,6 +24,8 @@ const HeaderNav = ({headerTitle, headerTxt, curPage, inCat=false, inArc=false}) 
            
         }
     `)
+   
+   
 
     // console.log(data, 'data from topblock')
     // console.log(inCat, curPage)
@@ -33,7 +35,7 @@ const HeaderNav = ({headerTitle, headerTxt, curPage, inCat=false, inArc=false}) 
             <div id="top-nav-div">
                 <div id="site-logo">
                     
-                    <Link to="/">
+                    <Link to="/" className={curPage === 'home' ? 'link-disabled' : null}>
                     <div className="siteLogo-container">
                     <StaticImage src="../images/logo.png" alt="Website Logo"></StaticImage>
                     </div>
@@ -51,7 +53,7 @@ const HeaderNav = ({headerTitle, headerTxt, curPage, inCat=false, inArc=false}) 
                     <ul className="navMenu">
                         {data.allContentfulCategory.edges && data.allContentfulCategory.edges.map( (node) => {
                             return (
-                                <li key={`nav-${node.node.contentful_id}`} className={curPage === 'web-novels' ? 'selected navCat' : 'navCat'}>
+                                <li key={`nav-${node.node.contentful_id}`} className={curPage === node.node.categoryName ? 'selected navCat' : 'navCat'}>
 
                                     <Link to={`/category/${node.node.slug}`}>{node.node.categoryName}</Link>
 
