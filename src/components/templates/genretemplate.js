@@ -23,7 +23,7 @@ const GenTemp = (props) => {
           <div id="top-section-container">
           <HeaderNav headerTitle={props.pageContext.genreName} inArc={true}/>
           </div>
-           <div id='bot-section-container'>
+           <div id='bot-section-container-genres'>
               <div className='cata-content-container'>
                 {categoryPosts && categoryPosts.map((node => {
                   
