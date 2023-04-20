@@ -9,6 +9,7 @@ import Footer from '../footer'
 import { Link } from 'gatsby'
 import { Disqus } from 'gatsby-plugin-disqus'
 import WarningComp from '../warning'
+import Layout from '../layout'
 
 
 
@@ -109,7 +110,8 @@ const ChaptersTemp = (props) => {
         },
     }
     return (
-        <div id="App"> 
+      <Layout>
+        
             {warningFlag ? <WarningComp></WarningComp> : null }
             
             <div id="top-section-container">
@@ -155,7 +157,8 @@ const ChaptersTemp = (props) => {
               <Footer></Footer>
 
             </footer>
-      </div>
+      
+      </Layout>
     )
 }
 

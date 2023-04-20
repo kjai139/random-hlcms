@@ -7,6 +7,7 @@ import { Link } from 'gatsby'
 import Seo from '../seo'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types'
+import Layout from '../layout'
 
 const Bold = ({ children }) => <span className='bold'>{children}</span>
 const Text = ({ children }) => <p className='chapter-txt'>{children}</p>
@@ -86,7 +87,8 @@ const NovelNameTemplate = (props) => {
         },
     }
     return (
-        <div id="App"> 
+      <Layout>
+        
             <div id="top-section-container">
             <HeaderNav headerTitle={`${novelName.title}`} inArc={true}/>
             </div>
@@ -135,7 +137,8 @@ const NovelNameTemplate = (props) => {
       <Footer />
 
       </footer>
-    </div>
+    
+    </Layout>
     )
 
     
