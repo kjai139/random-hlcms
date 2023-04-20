@@ -5,11 +5,13 @@ import { Link } from 'gatsby'
 import Footer from '../../components/footer'
 import { graphql } from 'gatsby'
 import Seo from '../../components/seo'
+import Layout from '../../components/layout'
 
 const AuthorPage = ({data}) => {
 
     return (
-        <div id="App"> 
+        <Layout>
+        
             <div id="top-section-container">
             <HeaderNav headerTitle="Our Authors" headerTxt="List of our best writers" curPage="authors" inCat={false}></HeaderNav>
             </div>
@@ -49,7 +51,8 @@ const AuthorPage = ({data}) => {
             </footer>
 
 
-        </div>
+        
+        </Layout>
     )
 }
 

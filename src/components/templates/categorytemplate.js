@@ -5,6 +5,7 @@ import { Link } from 'gatsby'
 import HeaderNav from '../headerNav'
 import Footer from '../../components/footer'
 import Seo from '../seo'
+import Layout from '../layout'
 
 const CatTemp = (props) => {
 
@@ -16,7 +17,8 @@ const CatTemp = (props) => {
 
 
     return (
-      <div id="App"> 
+      <Layout>
+      
           <div id="top-section-container">
           <HeaderNav headerTitle={`${categoryPosts[0].node.catRef.categoryName}`} headerTxt={'If you are using Safari you might have to disable blocking all cookies if you see blank pages'} curPage={`${categoryPosts[0].node.catRef.categoryName}`} inArc={true}/>
           </div>
@@ -82,8 +84,8 @@ const CatTemp = (props) => {
                 
         
     
-    </div>
     
+    </Layout>
     )
 }
 

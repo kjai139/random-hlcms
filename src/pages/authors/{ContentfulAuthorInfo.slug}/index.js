@@ -4,11 +4,13 @@ import Seo from '../../../components/seo'
 import HeaderNav from '../../../components/headerNav'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import  Footer  from '../../../components/footer'
+import Layout from '../../../components/layout'
 
 
 const AuthorPanel = ({data}) => {
         return (
-            <div id="App"> 
+            <Layout>
+             
                 <div id="top-section-container">
                     <HeaderNav headerTitle={data.contentfulAuthorInfo.name} headerTxt='Translator' curPage="authors2" inArc={true} inCat={false}></HeaderNav>
                 </div>
@@ -44,7 +46,8 @@ const AuthorPanel = ({data}) => {
                 </footer>
 
 
-            </div>
+            
+            </Layout>
         )
 }
 

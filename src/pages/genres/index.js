@@ -5,11 +5,13 @@ import { Link } from 'gatsby'
 import Footer from '../../components/footer'
 import { graphql } from 'gatsby'
 import Seo from '../../components/seo'
+import Layout from '../../components/layout'
 
 const GenresPage = ({data}) => {
 
     return (
-        <div id="App"> 
+      <Layout>
+         
             <div id="top-section-container">
             <HeaderNav headerTitle="Genre" headerTxt="Content Genre" curPage="genres" ></HeaderNav>
             </div>
@@ -25,7 +27,8 @@ const GenresPage = ({data}) => {
             </footer>
 
 
-        </div>
+        
+        </Layout>
     )
 }
 
