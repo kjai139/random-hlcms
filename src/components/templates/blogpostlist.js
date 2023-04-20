@@ -19,7 +19,7 @@ const BlogPostList = ({ data, pageContext }) => {
     <Layout>
      
       <div id="top-section-container">
-        <HeaderNav headerTitle='Post Archive' curPage="home" inArc={true} />
+        <HeaderNav headerTitle='Post Archive' inArc={true} />
         </div>
     <div className='archive-content'>
       {/* Render list of blog posts */}
