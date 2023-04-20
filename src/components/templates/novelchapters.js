@@ -114,7 +114,7 @@ const ChaptersTemp = (props) => {
                 <HeaderNav headerTitle={props.data.contentfulNovelChapters.title}></HeaderNav>
                 <div className='ch-author-div'>
                   <div className='ch-author-img'>
-                    <GatsbyImage image={props.data.contentfulNovelChapters.author.avatar.gatsbyImageData}></GatsbyImage>
+                    <GatsbyImage image={props.data.contentfulNovelChapters.author.avatar.gatsbyImageData}alt="avatar of author"></GatsbyImage>
 
                   </div>
                   <h6 className='ch-author-details'>Posted by {props.data.contentfulNovelChapters.author.name}, {props.data.contentfulNovelChapters.createdAt}</h6>
