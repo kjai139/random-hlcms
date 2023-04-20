@@ -16,13 +16,13 @@ const WarningComp = ({acknowledged}) => {
         const isAcknowledged = localStorage.getItem('warningAcknowledged')
         const numberOfVisits = parseInt(localStorage.getItem('numOfVisit'))
 
-        if (navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Chrome') === -1 ) {
-            document.hasStorageAccess().then(hasAccess => {
-                if (!hasAccess) {
-                    setSafariCookieMsg('If you see this message please disable blocking all cookies on your Safari')
-                }
-            })
-        }
+        // if (navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Chrome') === -1 ) {
+        //     document.hasStorageAccess().then(hasAccess => {
+        //         if (!hasAccess) {
+        //             setSafariCookieMsg('If you see this message please disable blocking all cookies on your Safari')
+        //         }
+        //     })
+        // }
         // console.log(isAcknowledged, numberOfVisits, 'acknowledge num check')
         if (isAcknowledged) {
             localStorage.setItem('numOfVisit', numberOfVisits + 1)
@@ -50,8 +50,9 @@ const WarningComp = ({acknowledged}) => {
 
 
     return (
+        
         <>
-        {safariCookieMsg.length > 2 && <div className='cookie-msg'>{safariCookieMsg}</div>}
+        
         {!warningAcknowledged && displayOverlay && 
         <div className='warning-overlay'>
             <div className='warning-container'>
