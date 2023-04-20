@@ -2,6 +2,7 @@ import * as React from 'react'
 import { useRef } from 'react'
 import { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 
 
 
@@ -106,7 +107,7 @@ const Searchbar = ({isBottom = false}) => {
                 setIsResultOut(false)
             }
         }}>
-            <span className="material-symbols-outlined">search</span>
+            <div className="search-icon-div"><StaticImage src='../components/styles/icons/search-icon.svg' alt='search icon'></StaticImage></div>
         </button>
         </form>
         <div ref={overlayRef} className={isResultOut ? 'overlay' : 'overlay hidden'} aria-disabled={isResultOut ? false : true} onClick={toggleMenuOpen} tabIndex="0" role="button" aria-label='Press Escape to close search menu'></div>

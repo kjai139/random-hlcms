@@ -39,7 +39,7 @@ h3 {
 }
 
 body {
-  font-family: var(--txtFont);
+  font-family: "Noto Sans", sans-serif
 }
 
 .App {
@@ -78,6 +78,7 @@ body {
 
 
 
+
 .btn-title-txt {
     font-size: 1rem;
 }
@@ -85,7 +86,7 @@ body {
 #top-nav-div {
   display: flex;
   justify-content: space-between;
-  font-family: var(--uiFont);
+ 
   font-weight: bold;
   font-size: 20px;
   padding: 10px;
@@ -613,6 +614,11 @@ a:visited {
   display: flex;
   justify-content: center;
   margin: 2rem 0rem 2rem 0rem;
+}
+
+.search-icon-div {
+  color: var(--darkthemeTextColor);
+  max-width: 24px;
 }
 
 .view-more-btn {

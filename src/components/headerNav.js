@@ -2,8 +2,8 @@
 import * as React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import Searchbar from "./searchbar"
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
-import logo from "../images/logo.png"
+import { StaticImage } from "gatsby-plugin-image"
+
 
 
 
