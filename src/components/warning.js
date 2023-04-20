@@ -9,7 +9,7 @@ import { Link } from 'gatsby'
 const WarningComp = ({acknowledged}) => {
     const [warningAcknowledged, setWarningAcknowledged] = useState(false)
     const [displayOverlay, setdisplayOverlay] = useState(false)
-    const [safariCookieMsg, setSafariCookieMsg] = useState('')
+    // const [safariCookieMsg, setSafariCookieMsg] = useState('')
 
 
     useEffect(() => {

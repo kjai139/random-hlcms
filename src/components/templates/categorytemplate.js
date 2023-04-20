@@ -4,7 +4,6 @@ import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
 import HeaderNav from '../headerNav'
 import Footer from '../../components/footer'
-import defaultPort from "../../images/default-portrait.jpg"
 import Seo from '../seo'
 
 const CatTemp = (props) => {

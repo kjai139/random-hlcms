@@ -106,6 +106,7 @@ body {
   text-align: center;
   max-width: 460px;
   display: flex;
+  font-size: 12px;
 }
 
 .section-headers {
@@ -1054,14 +1055,9 @@ tr {
 }
 
 @media screen and (min-width: 1024px) {
-  .top-sect-header {
-    text-align: center;
-  }
+  
 
-  .top-sect-header-txt {
-    padding: 1rem auto 0rem auto;
-    text-align: center;
-  }
+  
   .blogpost-body-container {
     grid-template-columns: minmax(200px, 1fr) minmax(0, auto) minmax(200px, 1fr);
     max-width: 1190px;
@@ -1089,15 +1085,9 @@ tr {
     text-align: center;
   }
 
-  .top-sect-header {
-    padding: 0rem auto 0rem auto;
-    text-align: center;
-  }
+  
 
-  .top-sect-header-txt {
-    text-align: center;
-    padding: 0px 50px 50px 50px;
-  }
+  
   .blogpost-body-container {
     grid-template-columns: minmax(0, auto) minmax(200px, 2fr) minmax(0, auto);
     max-width: 1190px;
@@ -1233,9 +1223,7 @@ tr {
     gap: 1rem;
   }
 
-  .top-sect-header-txt {
-    padding: 0px 30px 30px 30px;
-  }
+  
   .top-sect-header {
     padding: 2rem 0rem 1rem 0rem;
     text-align: center;
