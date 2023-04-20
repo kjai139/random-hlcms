@@ -16,11 +16,12 @@ const Bold = ({ children }) => <span className='bold'>{children}</span>
 const Text = ({ children }) => <p className='chapter-txt'>{children}</p>
 
 const ChaptersTemp = (props) => {
-    console.log(props, 'nvlchpts')
+    // console.log(props, 'nvlchpts')
 
     const disqusLink = props.pageContext.disqusUrl
     // console.log(disqusLink)
     const warningFlag = props.data.contentfulNovelChapters.novelName.genreTags.some(obj => obj.title.includes('Ero'))
+    // console.log(warningFlag)
     // console.log(props.data.contentfulNovelChapters.novelName.novelchapters.length, 'chapter length')
 
     const totalCh = props.data.contentfulNovelChapters.novelName.novelchapters.length
@@ -109,7 +110,8 @@ const ChaptersTemp = (props) => {
     }
     return (
         <div id="App"> 
-            {warningFlag && <WarningComp></WarningComp>}
+            {warningFlag ? <WarningComp></WarningComp> : null }
+            
             <div id="top-section-container">
                 <HeaderNav headerTitle={props.data.contentfulNovelChapters.title}></HeaderNav>
                 <div className='ch-author-div'>

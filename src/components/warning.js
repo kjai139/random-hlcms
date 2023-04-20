@@ -6,8 +6,9 @@ import { Link } from 'gatsby'
 
 
 
-const WarningComp = () => {
+const WarningComp = ({acknowledged}) => {
     const [warningAcknowledged, setWarningAcknowledged] = useState(false)
+    const [displayOverlay, setdisplayOverlay] = useState(false)
 
 
     useEffect(() => {
@@ -17,12 +18,15 @@ const WarningComp = () => {
         if (isAcknowledged) {
             localStorage.setItem('numOfVisit', numberOfVisits + 1)
             // console.log(localStorage.getItem('numOfVisit'), '< num added 1 ')
+            
             setWarningAcknowledged(true)
             if (numberOfVisits % 5 === 0) {
                 localStorage.removeItem('warningAcknowledged')
                 localStorage.removeItem('numOfVisit')
                 // console.log('storage removed')
             }
+        } else {
+            setdisplayOverlay(true)
         }
     }, [])
 
@@ -38,7 +42,7 @@ const WarningComp = () => {
 
     return (
         <>
-        {!warningAcknowledged && 
+        {!warningAcknowledged && displayOverlay && 
         <div className='warning-overlay'>
             <div className='warning-container'>
                 <h2 className='warning-title'>Warning! Section contains explicit/adult content. Are you 18+ years old?</h2>

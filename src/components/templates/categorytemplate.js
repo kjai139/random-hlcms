@@ -21,7 +21,7 @@ const CatTemp = (props) => {
           <div id="top-section-container">
           <HeaderNav headerTitle={`${categoryPosts[0].node.catRef.categoryName}`} inArc={true}/>
           </div>
-           <div id='bot-section-container'>
+           <div id='cata-bot-section-container'>
               <div className='cata-content-container'>
                 {categoryPosts && categoryPosts.map((node => {
                   // console.log(node.node.slug)
