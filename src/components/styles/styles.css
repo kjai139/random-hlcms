@@ -24,6 +24,8 @@
   --darkthemeVisited: #999999;
 }
 
+
+
 * {
   margin: 0;
   padding: 0;
@@ -237,7 +239,7 @@ a:visited {
   background-color: var(--darkthemeHighlight);
 }
 
-#searchBtn {
+.searchBtn {
   background: inherit;
   border: 0;
   color: var(--lightTxt);
@@ -1120,9 +1122,7 @@ tr {
 }
 
 @media screen and (max-width: 768px) {
-  html {
-    font-size: 1rem;
-  }
+  
 
   .archive-author-details {
     display: flex;

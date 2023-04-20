@@ -98,7 +98,7 @@ const Searchbar = ({isBottom = false}) => {
             
         <input type="text" placeholder={ isSearchOpen ? 'Enter keywords here...' : null} onInput={handleInputChange} value={query} className={ isSearchOpen ? "search-bar" : 'search-bar inactive'}>
         </input>
-        <button id="searchBtn" onClick={(e) => {
+        <button className="searchBtn" onClick={(e) => {
             e.preventDefault()
            setQuery('')
             
