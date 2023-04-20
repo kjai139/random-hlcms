@@ -6,13 +6,14 @@ import BotBlock from "../components/botblock"
 import TopPosts from "../components/topposts"
 import Footer from "../components/footer"
 import { Link } from "gatsby"
+import Layout from "../components/layout"
 
 const HomePage = () => {
 
   
 
   return (
-    <div id="App"> 
+    <Layout>
       <div id="top-section-container">
         <HeaderNav curPage="home"/>
         {/* <div className="section-headers"><h2>Latest Releases</h2></div> */}
@@ -28,7 +29,7 @@ const HomePage = () => {
       <Footer />
 
     </footer>
-    </div>
+    </Layout>
   )
 }
 
