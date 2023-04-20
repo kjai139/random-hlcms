@@ -19,7 +19,7 @@ const CatTemp = (props) => {
     return (
       <div id="App"> 
           <div id="top-section-container">
-          <HeaderNav headerTitle={`${categoryPosts[0].node.catRef.categoryName}`} inArc={true}/>
+          <HeaderNav headerTitle={`${categoryPosts[0].node.catRef.categoryName}`} headerTxt={'If you are using Safari you might have to disable blocking all cookies if you see blank pages'} inArc={true}/>
           </div>
            <div id='cata-bot-section-container'>
               <div className='cata-content-container'>
