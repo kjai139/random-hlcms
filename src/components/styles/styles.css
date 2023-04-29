@@ -732,13 +732,14 @@ a:visited {
 
 #kofi-page-btn {
   display: flex;
-  max-width: 300px;
+  max-width: 240px;
 }
 
 .kofi-btn-ch{
   display: flex;
   align-items: center;
   justify-content: center;
+  flex:1;
   
   padding: 5px 10px 5px 10px;
   border-radius: 8px;
