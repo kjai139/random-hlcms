@@ -399,6 +399,7 @@ a:visited {
 .blogpost-btn-nav {
     justify-content: space-between;
     display: flex;
+    gap: 1rem;
 }
 
 .blogpost-body-container {
@@ -718,6 +719,42 @@ a:visited {
 
 .kofi-img {
     max-width: 30px;
+    
+}
+
+.ch-cmt-header {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid;
+}
+
+
+
+#kofi-page-btn {
+  display: flex;
+  max-width: 300px;
+}
+
+.kofi-btn-ch{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  padding: 5px 10px 5px 10px;
+  border-radius: 8px;
+  background-color: var(--highlighted);
+  color: var(--darkthemeTextColor);
+  margin-top: 1rem;
+  font-family: var(--txtFont);
+  font-weight: bold;
+  
+  
+
+}
+
+.kofi-btn-ch:hover .kofi-img img{
+  transform: rotate(-60deg);
+  transition: transform .7s ease-in-out;
 }
 
 .kofi-btn {

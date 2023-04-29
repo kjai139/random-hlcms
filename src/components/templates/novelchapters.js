@@ -2,7 +2,7 @@ import { graphql } from 'gatsby'
 import * as React from 'react'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image'
 import HeaderNav from '../headerNav'
 import Seo from '../seo'
 import Footer from '../footer'
@@ -13,8 +13,10 @@ import Layout from '../layout'
 
 
 
+
 const Bold = ({ children }) => <span className='bold'>{children}</span>
 const Text = ({ children }) => <p className='chapter-txt'>{children}</p>
+
 
 const ChaptersTemp = (props) => {
     // console.log(props, 'nvlchpts')
@@ -40,18 +42,36 @@ const ChaptersTemp = (props) => {
       title:props.data.contentfulNovelChapters.title,
     }
 
+   
+
 
 
     const options = {
         renderMark: {
             [MARKS.BOLD]: text => <Bold>{text}</Bold>,
         },
+        renderText: (text) => {
+          const seg = text.split('&&&')
+          return seg.reduce((children, segment, index)=> {
+            if (index > 0) {
+              children.push(<br key={`br${index}`}></br>)
+            }
+            if (seg !== ''){
+              children.push(seg)
+            }
+            return children
+          }, [])
+          
+        },
+        
         renderNode: {
             [BLOCKS.PARAGRAPH]: (node, children) => {
-               
+                  
                   return <Text>{children}</Text>
                   
             },
+        
+            
             [INLINES.HYPERLINK]: (node, children) => {
                 // console.log(node.data.uri, 'node data uri')
                 // console.log(node, 'hyperlink node')
@@ -139,8 +159,11 @@ const ChaptersTemp = (props) => {
                     }
                     {currentCh === totalCh ? null : <Link to={`../${nextSlug}`}><button className='ch-nav-btns'>Next Chapter</button></Link>}
                 </nav>
+                
+                <a id='kofi-page-btn' href='https://ko-fi.com/wnnexus' aria-label='Click me' target='_blank' rel='noopener noreferrer' title='Link opens in a new window' className='kofi-link-btn-ch'><div className='kofi-btn-ch'><div className='kofi-img'><StaticImage src='../../images/kofi-logo.png' alt='kofi donation button'></StaticImage></div><span>Treat us to a coffee</span></div></a>
 
                 <div id='disqus-container'>
+                <h3 className='ch-cmt-header'>Comments for {props.data.contentfulNovelChapters.title}</h3>
                 <Disqus config={disqusConfig}/>
                 </div>
 
