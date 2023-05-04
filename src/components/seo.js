@@ -17,7 +17,7 @@ const Seo = ({title, description, siteUrl, ogImg, ogTitle, ogDesc}) => {
         }
     `)
     
-    // console.log(data)
+    console.log(data.site.siteMetadata.title)
 
 
     return (
