@@ -124,7 +124,7 @@ query($skip: Int!, $limit: Int!){
 //   }
 // `;
 
-export const Head = () => <Seo title='Post Archive | wnNexus' description='An archive of all blog posts' />
+export const Head = () => <Seo title='Post Archive' description='An archive of all blog posts' />
 
 export default BlogPostList
 
