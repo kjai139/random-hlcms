@@ -20,7 +20,9 @@ const Text = ({ children }) => <p className='chapter-txt'>{children}</p>
 
 const ChaptersTemp = (props) => {
     // console.log(props, 'nvlchpts')
-
+    
+    const siteLink = props.data.site.siteMetadata.siteUrl
+    
     const disqusLink = props.pageContext.disqusUrl
     // console.log(disqusLink)
     const warningFlag = props.data.contentfulNovelChapters.novelName.genreTags.some(obj => obj.title.includes('Ero'))
@@ -37,7 +39,7 @@ const ChaptersTemp = (props) => {
     // console.log(prevSlug, nextSlug)
 
     const disqusConfig = {
-      url:`https://tl-nexus.xyz/${disqusLink}`,
+      url:`${siteLink}/${disqusLink}`,
       identifier: props.data.contentfulNovelChapters.contentful_id,
       title:props.data.contentfulNovelChapters.title,
     }
@@ -228,6 +230,11 @@ export const query = graphql`
                     }
                   }
             }
+        }
+        site {
+          siteMetadata {
+            siteUrl
+          }
         }
             
     }
