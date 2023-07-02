@@ -37,7 +37,8 @@ const HeaderNav = ({headerTitle, headerTxt, curPage='', inCat=false, inArc=false
                     
                     <Link to="/" className={curPage === 'home' ? 'link-disabled' : null}>
                     <div className="siteLogo-container">
-                    <StaticImage src="../images/logo.png" alt="Website Logo"></StaticImage>
+                    {/* <StaticImage src="../images/logo.png" alt="Website Logo"></StaticImage> */}
+                    <span>TL Nexus</span>
                     </div>
                     </Link>
                     {/* {data.contentfulAsset ? <div className="siteLogo-container"><Link to="/"><GatsbyImage image={data.contentfulAsset.gatsbyImageData} alt="Deskego.com site logo"></GatsbyImage></Link></div> :<div><Link to="/">JPW Hub</Link></div> } */}
