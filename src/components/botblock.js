@@ -72,6 +72,7 @@ const BotBlock = () => {
 
     return (
         <div id="bot-section-container">
+          <span className='section-header'>Older Releases</span>
             <div className='bot-content-container-home'>
             {renderBottomFourPosts()}
             </div>

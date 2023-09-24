@@ -138,6 +138,12 @@ body {
   color: #e5e5e5;
 }
 
+.section-header {
+  font-size: 1.5rem;
+  color:var(--darkthemeTextColor);
+  font-weight: bold;
+}
+
 
 
 .header-small-img {
